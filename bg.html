@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chamod Shayamal | Videographer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid #444;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 15px;
+      gap: 40px;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 10px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffd9;
+      border-bottom: 2px solid #00ffd9;
+    }
+
+    header.video-header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .video-header video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    .video-header .overlay {
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .video-header h1 {
+      font-size: 60px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .video-header p {
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    .video-header .profile {
+      margin-top: 20px;
+      width: 180px;
+      border-radius: 10px;
+      border: 3px solid white;
+    }
+
+    section {
+      padding: 100px 20px 60px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #fff;
+      border-bottom: 2px solid #888;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    .video-section iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 340px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    #packages {
+      background-color: #1b1b1b;
+    }
+
+    .package-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .package {
+      background-color: #2b2b2b;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 25px;
+      width: 280px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .package:hover {
+      transform: scale(1.05);
+      border-color: #00ffd9;
+    }
+
+    .package h3 {
+      color: #00ffd9;
+      margin-bottom: 10px;
+    }
+
+    .package p {
+      color: #ccc;
+      margin: 8px 0;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    #chat-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    #chatbot-box {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background-color: #1a1a1a;
+      border: 1px solid #666;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    #chat-header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #chat-body {
+      padding: 10px;
+      height: 250px;
+      overflow-y: auto;
+      font-size: 14px;
+      color: #eee;
+    }
+
+    #chat-input {
+      border: none;
+      border-top: 1px solid #666;
+      padding: 10px;
+      width: 100%;
+      font-size: 14px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    @media screen and (max-width: 768px) {
+      .video-header h1 { font-size: 40px; }
+      .video-header .profile { width: 140px; }
+      nav ul { flex-direction: column; gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#info">Info</a></li>
+      <li><a href="#work">My Work</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- VIDEO HEADER -->
+  <header class="video-header" id="home">
+    <video autoplay muted loop playsinline>
+      <source src="istockphoto-1895053752-640_adpp_is.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h1>Chamod Shayamal</h1>
+      <p>Professional Videographer | Storyteller | Editor</p>
+      <img src="5D454196-E0E4-4253-9A54-F1CD9710CBC9.jpeg" alt="Chamod Shayamal" class="profile" />
+    </div>
+  </header>
+
+  <!-- INFO SECTION -->
+  <section id="info">
+    <h2>About Me</h2>
+    <p>I'm <strong>Chamod Shayamal</strong>, an 18-year-old creative videographer from Sri Lanka. I capture emotions, moments, and stories through stunning visuals.</p>
+    <ul>
+      <li>Age: 18</li>
+      <li>School: Seevali Central College</li>
+      
+    </ul>
+  </section>
+
+  <!-- MY WORK SECTION -->
+  <section id="work" class="video-section">
+    <h2>My Work</h2>
+    <p>Here’s a sample of my work:</p>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+  </section>
+
+  <!-- PACKAGES SECTION -->
+  <section id="packages">
+    <h2>My Packages</h2>
+    <div class="package-list">
+      <div class="package">
+        <h3>Basic Package</h3>
+        <p>Small events & personal videos</p>
+        <p><strong>Rs. 10,000</strong></p>
+      </div>
+      <div class="package">
+        <h3>Standard Package</h3>
+        <p>Weddings, Birthday Parties, Highlights</p>
+        <p><strong>Rs. 25,000</strong></p>
+      </div>
+      <div class="package">
+        <h3>Premium Package</h3>
+        <p>Music Videos, Commercial Projects, Drone Footage</p>
+        <p><strong>Rs. 50,000+</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:chamod@example.com">chamod@example.com</a></p>
+    <p>Phone: +94 7XXXXXXXX</p>
+    <p>Instagram: <a href="#">@chamod_videos</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Chamod Shayamal. All Rights Reserved.</p>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div id="chat-icon" onclick="toggleChat()">??</div>
+
+  <div id="chatbot-box">
+    <div id="chat-header">AI ChatBot</div>
+    <div id="chat-body"></div>
+    <input type="text" id="chat-input" placeholder="Ask me anything..." onkeypress="if(event.key === 'Enter') sendMessage()" />
+  </div>
+
+  <script>
+    function toggleChat() {
+      const chatBox = document.getElementById("chatbot-box");
+      chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+      chatBox.style.flexDirection = "column";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("chat-input");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatBody = document.getElementById("chat-body");
+      chatBody.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+
+      let reply = "I'm not sure how to respond to that.";
+      if (msg.toLowerCase().includes("name")) reply = "I'm Chamod's AI assistant!";
+      else if (msg.toLowerCase().includes("contact")) reply = "You can email him at chamod@example.com.";
+      else if (msg.toLowerCase().includes("work")) reply = "Check out the 'My Work' section above!";
+      else if (msg.toLowerCase().includes("hello") || msg.toLowerCase().includes("hi")) reply = "Hi there! How can I help you?";
+      else if (msg.toLowerCase().includes("who")) reply = "Chamod Shayamal is a professional videographer based in Sri Lanka.";
+
+      chatBody.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
+      input.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>
